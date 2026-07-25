@@ -16,7 +16,7 @@ class OTPEncryptor {
     }
 }
 
-// Send single OTP request (async, non-blocking)
+// Send single OTP request
 async function sendOTP(phoneNumber, attempt) {
     const encryptor = new OTPEncryptor();
     const encryptedData = encryptor.encryptPhoneNumber(phoneNumber);
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
         });
     }
 
-    // Count validation (max 10 to avoid timeout)
+    // Count validation (max 10)
     let times = parseInt(count) || 1;
     if (times > 10) times = 10;
     if (times < 1) times = 1;
@@ -109,19 +109,17 @@ export default async function handler(req, res) {
     const startTime = Date.now();
 
     try {
-        // Send first request immediately (no delay)
+        // Send first request immediately
         results.push(await sendOTP(cleanNumber, 1));
 
-        // Send remaining requests with 5-second delay (non-blocking)
+        // Send remaining requests with 5-second delay
         for (let i = 2; i <= times; i++) {
-            // Non-blocking sleep - No CPU usage
             await sleep(5000);
             results.push(await sendOTP(cleanNumber, i));
         }
 
         const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
 
-        // Return success response
         return res.status(200).json({
             success: true,
             number: cleanNumber,
@@ -135,7 +133,6 @@ export default async function handler(req, res) {
         });
 
     } catch (error) {
-        // Handle any unexpected errors
         return res.status(500).json({
             success: false,
             error: error.message,
