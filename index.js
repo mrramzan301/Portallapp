@@ -1,8 +1,8 @@
 export default function handler(req, res) {
     res.status(200).json({
-        message: 'OTP API is running!',
+        message: '✅ OTP API is running!',
         endpoint: '/api/otp',
-        usage: 'GET or POST with parameters: number and count',
-        example: 'GET /api/otp?number=3376313363&count=3'
+        usage: 'GET /api/otp?number=3376313363&count=3',
+        example: 'curl "https://your-app.vercel.app/api/otp?number=3376313363&count=3"'
     });
 }
