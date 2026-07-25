@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/otp.js": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/otp",
+      "dest": "/api/otp.js"
+    }
+  ]
+}
