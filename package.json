@@ -1,15 +1,13 @@
 {
-  "name": "otp-api-async",
+  "name": "portallapp-api",
   "version": "1.0.0",
-  "description": "OTP API with async 5-second delay - No blocking",
+  "description": "OTP API with count parameter and 5-second delay",
   "type": "module",
   "scripts": {
-    "dev": "vercel dev",
     "start": "node api/otp.js"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "dependencies": {},
-  "devDependencies": {}
+  "engines": {
+    "node": "18.x"
+  }
 }
