@@ -1,12 +1,8 @@
 {
-  "name": "portallapp-api",
+  "name": "otp-api",
   "version": "1.0.0",
-  "description": "OTP API with count parameter and 5-second delay",
+  "description": "OTP API with 5-second delay",
   "type": "module",
-  "scripts": {
-    "start": "node api/otp.js"
-  },
-  "dependencies": {},
   "engines": {
     "node": "20.x"
   }
